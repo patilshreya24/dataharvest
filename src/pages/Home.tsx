@@ -1,0 +1,152 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
+import heroImage from "@/assets/farm-hero.jpg";
+import {
+  Shield,
+  Globe,
+  QrCode,
+  BarChart3,
+  Users,
+  ArrowRight,
+} from "lucide-react";
+
+const Home = () => {
+  const features = [
+    {
+      icon: QrCode,
+      title: "QR Code Traceability",
+      description: "Track products from farm to consumer with secure blockchain technology",
+    },
+    {
+      icon: Shield,
+      title: "MRL & AMU Monitoring",
+      description: "Real-time monitoring of Maximum Residue Limits and Antimicrobial Usage",
+    },
+    {
+      icon: BarChart3,
+      title: "Advanced Analytics",
+      description: "AI-powered insights and predictive alerts for better farm management",
+    },
+    {
+      icon: Globe,
+      title: "Global Compliance",
+      description: "Meet international food safety standards and regulatory requirements",
+    },
+  ];
+
+  const benefits = [
+    { stakeholder: "Farmers", benefit: "Higher profits via premium markets and early alerts" },
+    { stakeholder: "Consumers", benefit: "Safe food with farm-to-fork transparency and trust" },
+    { stakeholder: "Government", benefit: "Data-driven policy and regulatory compliance" },
+    { stakeholder: "Environment", benefit: "Reduced chemical usage and sustainable practices" },
+  ];
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+        <div className="container mx-auto px-4 py-16 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
+                  <span className="bg-gradient-hero bg-clip-text text-transparent">
+                    DataHarvest
+                  </span>
+                  <br />
+                  <span className="text-foreground">
+                    Livestock Management Portal
+                  </span>
+                </h1>
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  Digital platform for monitoring Maximum Residue Limits (MRL) and 
+                  Antimicrobial Usage (AMU) in livestock with blockchain-powered traceability
+                </p>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-hero opacity-20 rounded-2xl blur-3xl"></div>
+              <img
+                src={heroImage}
+                alt="Modern farm management with digital technology"
+                className="relative w-full h-auto rounded-2xl shadow-strong"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 lg:py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold">
+              Revolutionary Farm-to-Fork Solution
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              .
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <Card
+                  key={index}
+                  className="shadow-soft hover:shadow-medium transition-smooth border-0 bg-background/80 backdrop-blur"
+                >
+                  <CardContent className="p-6 text-center">
+                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Icon className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                    <p className="text-muted-foreground">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Impact & Benefits */}
+      <section className="py-16 lg:py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold">
+              Building a Safer, More Transparent Food System
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Our solution benefits every stakeholder in the food supply chain
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {benefits.map((benefit, index) => (
+              <Card key={index} className="shadow-soft hover:shadow-medium transition-smooth">
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center">
+                      <Users className="h-5 w-5 text-white" />
+                    </div>
+                    <span>{benefit.stakeholder}</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{benefit.benefit}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+};
+
+export default Home;
